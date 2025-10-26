@@ -14,7 +14,173 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      meeting_attendees: {
+        Row: {
+          attendance_status: string | null
+          created_at: string
+          id: string
+          meeting_id: string
+          user_id: string
+        }
+        Insert: {
+          attendance_status?: string | null
+          created_at?: string
+          id?: string
+          meeting_id: string
+          user_id: string
+        }
+        Update: {
+          attendance_status?: string | null
+          created_at?: string
+          id?: string
+          meeting_id?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "meeting_attendees_meeting_id_fkey"
+            columns: ["meeting_id"]
+            isOneToOne: false
+            referencedRelation: "meetings"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      meetings: {
+        Row: {
+          action_items: Json | null
+          created_at: string
+          created_by: string
+          description: string | null
+          duration_minutes: number | null
+          id: string
+          location: string | null
+          meeting_date: string
+          meeting_type: string | null
+          recording_url: string | null
+          status: string | null
+          summary: string | null
+          title: string
+          transcript: string | null
+          updated_at: string
+        }
+        Insert: {
+          action_items?: Json | null
+          created_at?: string
+          created_by: string
+          description?: string | null
+          duration_minutes?: number | null
+          id?: string
+          location?: string | null
+          meeting_date: string
+          meeting_type?: string | null
+          recording_url?: string | null
+          status?: string | null
+          summary?: string | null
+          title: string
+          transcript?: string | null
+          updated_at?: string
+        }
+        Update: {
+          action_items?: Json | null
+          created_at?: string
+          created_by?: string
+          description?: string | null
+          duration_minutes?: number | null
+          id?: string
+          location?: string | null
+          meeting_date?: string
+          meeting_type?: string | null
+          recording_url?: string | null
+          status?: string | null
+          summary?: string | null
+          title?: string
+          transcript?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      policies: {
+        Row: {
+          category: string
+          content: string
+          created_at: string
+          created_by: string
+          description: string | null
+          effective_date: string | null
+          id: string
+          review_date: string | null
+          status: string | null
+          tags: string[] | null
+          title: string
+          updated_at: string
+          version: string | null
+        }
+        Insert: {
+          category: string
+          content: string
+          created_at?: string
+          created_by: string
+          description?: string | null
+          effective_date?: string | null
+          id?: string
+          review_date?: string | null
+          status?: string | null
+          tags?: string[] | null
+          title: string
+          updated_at?: string
+          version?: string | null
+        }
+        Update: {
+          category?: string
+          content?: string
+          created_at?: string
+          created_by?: string
+          description?: string | null
+          effective_date?: string | null
+          id?: string
+          review_date?: string | null
+          status?: string | null
+          tags?: string[] | null
+          title?: string
+          updated_at?: string
+          version?: string | null
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          avatar_url: string | null
+          created_at: string
+          department: string | null
+          email: string | null
+          full_name: string | null
+          id: string
+          role: string | null
+          updated_at: string
+        }
+        Insert: {
+          avatar_url?: string | null
+          created_at?: string
+          department?: string | null
+          email?: string | null
+          full_name?: string | null
+          id: string
+          role?: string | null
+          updated_at?: string
+        }
+        Update: {
+          avatar_url?: string | null
+          created_at?: string
+          department?: string | null
+          email?: string | null
+          full_name?: string | null
+          id?: string
+          role?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
