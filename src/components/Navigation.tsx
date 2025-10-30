@@ -17,18 +17,15 @@ const Navigation = () => {
           </div>
           
           <div className="hidden md:flex items-center gap-8">
-            <a href="#features" className="text-sm font-medium hover:text-primary transition-colors">
+            <button onClick={() => navigate("/features")} className="text-sm font-medium hover:text-primary transition-colors">
               Features
-            </a>
-            <a href="#dashboard" className="text-sm font-medium hover:text-primary transition-colors">
+            </button>
+            <button onClick={() => navigate("/dashboard-view")} className="text-sm font-medium hover:text-primary transition-colors">
               Dashboard
-            </a>
-            <a href="#search" className="text-sm font-medium hover:text-primary transition-colors">
+            </button>
+            <button onClick={() => navigate("/search")} className="text-sm font-medium hover:text-primary transition-colors">
               Search
-            </a>
-            <a href="#pricing" className="text-sm font-medium hover:text-primary transition-colors">
-              Pricing
-            </a>
+            </button>
           </div>
           
           <div className="flex items-center gap-3">
